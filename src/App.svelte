@@ -61,7 +61,7 @@
         <div
           in:blur={{ duration: 500 }}
           out:blur={{ duration: 500 }}
-          class="relative top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-2/3 min-w-full max-w-full md:min-w-2/3 md:max-w-2/3 drop-shadow-xl/50 bg-[rgba(255,255,255,0.5)] backdrop-blur p-4 z-1 rounded-4xl overflow-hidden grid content-center place-content-center"
+          class="relative top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 sm:h-2/3 min-w-full max-w-full md:min-w-2/3 md:max-w-2/3 drop-shadow-xl/50 bg-[rgba(255,255,255,0.5)] backdrop-blur p-4 z-1 rounded-4xl overflow-hidden grid content-center place-content-center"
         >
           <IPod onHomeBtnClick={() => (showIPodPlayer = false)} />
         </div>
