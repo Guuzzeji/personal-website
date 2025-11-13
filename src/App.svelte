@@ -60,7 +60,7 @@
       </div>
     {:else}
       <div
-        class="absolute drop-shadow-xl/50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-10/16 grid place-items-center m-auto h-2/3 min-w-14/16 max-w-1/2 md:min-w-2/3 md:max-w-2/3 bg-[rgba(255,255,255,0.5)] backdrop-blur p-4 z-1 rounded-md overflow-hidden"
+        class="absolute drop-shadow-xl/50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-10/16 grid place-items-center m-auto h-2/3 w-full md:min-w-2/3 md:max-w-2/3 bg-[rgba(255,255,255,0.5)] backdrop-blur p-4 z-1 rounded-md overflow-hidden"
         in:blur={{ delay: 500, duration: 1000 }}
       >
         <div class="h-full w-full border rounded-md overflow-hidden">
