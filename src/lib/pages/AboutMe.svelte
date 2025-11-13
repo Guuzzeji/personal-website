@@ -8,7 +8,7 @@
   let showAboutMeInfo = $state(false);
   let handleShowContent = () => {
     showAboutMeInfo = true;
-    console.log(showAboutMeInfo);
+    // console.log(showAboutMeInfo);
   };
 </script>
 
@@ -38,7 +38,7 @@
     </div>
   {:else}
     <div class="w-full h-full" in:fade={{ delay: 1000, duration: 1000 }}>
-      <div class="text-3xl mt-3 ml-3 font-weight-500">
+      <div class="md:text-3xl text-2xl mt-3 ml-3 font-weight-500">
         <img
           class="text-md inline item-center h-10 w-10 mb-2"
           src={WAVE_ICON}
@@ -46,43 +46,38 @@
         />
         Hello, I'm Gabe
       </div>
-      <p class="m-3">
+      <p class="m-3 md:text-2xl text-sm">
         <i
           >(a.k.a. Guuzzeji Online! A full-stack developer and backend
           developer)</i
         >
       </p>
-      <p class="m-3">
-        I'm a full-stack developer with a serious passion for the backend.
-        There's nothing I love more than architecting the robust, scalable
-        systems that power great user experiences! (at least when things don't
-        crash)
-      </p>
-      <p class="m-3">
-        I recently graduated from Pacific Lutheran University with a B.S. in
-        Computer Science and a minor in Data Science.
-      </p>
-      <p class="m-3">
-        During my four internships at Microsoft, I was a core contributor to
-        Xbox Live Services. I specialized in building and maintaining the
-        high-performance leaderboard and ranking systems trusted by thousands of
-        game studios and utilized by millions of players globally. This
-        experience taught me how to deliver reliability at massive scale.
-      </p>
-      <p class="m-3">
-        I thrive on coding and continuous learning, and I'm always on the hunt
-        for the next big technical challenge to conquer.
-      </p>
-      <p class="m-3">
-        When I'm not writing APIs or debugging a service, you can find me:
-      </p>
-      <ul class="ml-10 list-disc">
-        <li>Gaming (of course!), but I need to get off of World of Warcraft</li>
-        <li>Watching movies, Scarface!</li>
-        <li>Reading books, mostly sci-fi, the future is written in books!</li>
-        <li>Editing YouTube videos</li>
-        <li>Tyler the Creator FAN!!!</li>
-      </ul>
+      <div class="md:text-xl">
+        <p class="m-3">
+          I am a full-stack developer with a strong focus and passion for the
+          backend, specializing in architecting robust and scalable systems. I
+          recently earned a B.S. in Computer Science and a minor in Data Science
+          from Pacific Lutheran University. I thrive on coding, continuous
+          learning, and am constantly seeking out new and complex technical
+          challenges to conquer.
+        </p>
+        <p class="m-3">
+          My practical experience includes four internships at Microsoft, where
+          I was a core contributor to Xbox Live Services. In this role, I
+          specialized in building and maintaining the high-performance
+          leaderboard and ranking systems used by thousands of game studios and
+          millions of global players. This intense experience was instrumental
+          in teaching me how to deliver high reliability and performance at a
+          massive, global scale.
+        </p>
+        <p class="m-3">
+          Outside of coding, I also enjoy playing video games (I need to get off
+          of World of Warcraft), watching movies (Scarface!), reading books
+          (mostly sci-fi), and editing YouTube videos. I am a big fan of Tyler
+          the Creator and his music.
+        </p>
+        <br />
+      </div>
     </div>
   {/if}
 </div>
