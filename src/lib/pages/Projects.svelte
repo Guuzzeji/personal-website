@@ -13,11 +13,11 @@
     axios
       .get(BASE_URL)
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         projects = response.data;
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
         loadingContent = "error";
       })
       .finally(() => {
