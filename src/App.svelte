@@ -37,10 +37,12 @@
       autoplay
       loop
       muted
+      playsinline
+      preload="auto"
       in:fade
       oncanplay={() => (isBackgroundReady = true)}
     >
-      <source src="/background/main.webm" type="video/mp4" />
+      <source src="/background/main.mp4" type="video/mp4" />
     </video>
   </div>
   {#if isBackgroundReady}

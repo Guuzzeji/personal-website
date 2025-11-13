@@ -15,7 +15,7 @@
     } else if (Math.abs(volume - 0.1) > 0.0001) {
       volume -= 0.1;
     }
-    console.log(volume);
+    // console.log(volume);
   }
 </script>
 
@@ -41,9 +41,7 @@
       </div>
       <div class="menu-options">
         <div class="p-3">
-          <div>
-            Tyler Creator - CALL ME IF YOU GET LOST: THE ESTATE SALE.mp3
-          </div>
+          <div>Tyler Creator RUNITUP.mp3</div>
         </div>
       </div>
     </div>
@@ -78,6 +76,8 @@
   <div class="hidden">
     <audio
       loop
+      preload="auto"
+      playsinline
       autoplay={false}
       bind:paused={isPlaying}
       bind:volume
@@ -85,19 +85,12 @@
         isAudioReady = true;
       }}
     >
-      <source src="/music/tyler-call-me.mp3" type="audio/mp3" />
+      <source src="/music/RUNITUP.mp3" type="audio/mp3" />
     </audio>
   </div>
 </div>
 
 <style>
-  @font-face {
-    font-family: "ChicagoFont";
-    src: url("/fonts/ChicagoFLF.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-  }
-
   :root {
     --light-background: #ffffff;
     --dark-background: #e3e4e5;
@@ -150,6 +143,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 600;
   }
 
   .title-bar {
@@ -244,8 +239,11 @@
     flex-direction: column;
     justify-content: space-around;
     position: relative;
+    text-align: center;
     top: 17%;
     height: 81%;
+    font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 600;
   }
 
   .outer-ring {
