@@ -37,6 +37,15 @@
       "agent": "Sisyphus-Junior",
       "category": "deep",
       "updated_at": "2026-06-22T09:32:24.067Z"
+    },
+    "todo:5": {
+      "task_key": "todo:5",
+      "task_label": "5",
+      "task_title": "Implement scroll-driven progressive iPod → BottomNav morph animation",
+      "session_id": "ses_1114fe874ffebwR6pPBFkQuERx",
+      "agent": "Sisyphus-Junior",
+      "category": "quick",
+      "updated_at": "2026-06-22T09:40:46.416Z"
     }
   }
 }

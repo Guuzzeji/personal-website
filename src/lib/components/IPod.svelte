@@ -1,4 +1,5 @@
 <script lang="ts">
+  /** @deprecated The iPod no longer dismisses on center button click. */
   let { onHomeBtnClick = () => {} } = $props();
 
   let isPlaying = $state(false);
@@ -7,6 +8,10 @@
 
   function togglePlay() {
     isPlaying = !isPlaying;
+  }
+
+  export function pauseAudio() {
+    isPlaying = false;
   }
 
   function changeVolume(increase: boolean) {
@@ -63,10 +68,7 @@
       </button>
       <div class="touch-wheel"></div>
       <button
-        onclick={() => {
-          onHomeBtnClick();
-          isPlaying = false;
-        }}
+        onclick={togglePlay}
         class="cursor-pointer"
       >
         <div class="center-button"></div>

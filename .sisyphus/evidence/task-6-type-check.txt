@@ -1,0 +1,52 @@
+✓ Lockfile passes supply-chain policies (verified 47m ago)
+Lockfile is up to date, resolution step is skipped
+Already up to date
+
+Done in 591ms using pnpm v11.8.0
+$ svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json
+Loading svelte-check in workspace: /Users/guzzji/repos/personal-website
+Getting Svelte diagnostics...
+
+(node:60663) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+/Users/guzzji/repos/personal-website/src/lib/components/IPod.svelte:60:7
+Warn: Buttons and links should either contain text or have an `aria-label`, `aria-labelledby` or `title` attribute
+https://svelte.dev/e/a11y_consider_explicit_label (svelte)
+      </svg>
+      <button onclick={() => changeVolume(true)} class="cursor-pointer">
+        <div class="skip forward">&#32;&#32;&#32;</div>
+      </button>
+      <button onclick={() => changeVolume(false)} class="cursor-pointer">
+
+/Users/guzzji/repos/personal-website/src/lib/components/IPod.svelte:63:7
+Warn: Buttons and links should either contain text or have an `aria-label`, `aria-labelledby` or `title` attribute
+https://svelte.dev/e/a11y_consider_explicit_label (svelte)
+      </button>
+      <button onclick={() => changeVolume(false)} class="cursor-pointer">
+        <div class="skip back">&#32;&#32;&#32;</div>
+      </button>
+      <button onclick={togglePlay} class="cursor-pointer">
+
+/Users/guzzji/repos/personal-website/src/lib/components/IPod.svelte:66:7
+Warn: Buttons and links should either contain text or have an `aria-label`, `aria-labelledby` or `title` attribute
+https://svelte.dev/e/a11y_consider_explicit_label (svelte)
+      </button>
+      <button onclick={togglePlay} class="cursor-pointer">
+        <div class="play-pause">&#32;&#32;&#32;</div>
+      </button>
+      <div class="touch-wheel"></div>
+
+/Users/guzzji/repos/personal-website/src/lib/components/IPod.svelte:70:7
+Warn: Buttons and links should either contain text or have an `aria-label`, `aria-labelledby` or `title` attribute
+https://svelte.dev/e/a11y_consider_explicit_label (svelte)
+      <div class="touch-wheel"></div>
+      <button
+        onclick={togglePlay}
+        class="cursor-pointer"
+      >
+        <div class="center-button"></div>
+      </button>
+    </div>
+
+====================================
+svelte-check found 0 errors and 4 warnings in 1 file

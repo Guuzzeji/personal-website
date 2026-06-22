@@ -633,7 +633,7 @@ Parallel Speedup: ~55% faster than sequential (max 4 concurrent in Wave 1, 3 in 
   - Message: `feat(animation): implement scroll-driven iPod → BottomNav progressive morph`
   - Files: `src/App.svelte`
 
-- [ ] 6. Update IPod.svelte — repurpose center button + add audio pause hook
+- [x] 6. Update IPod.svelte — repurpose center button + add audio pause hook
 
   **What to do**:
   - Open `src/lib/components/IPod.svelte`

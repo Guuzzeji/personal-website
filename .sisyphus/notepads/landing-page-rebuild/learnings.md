@@ -67,3 +67,12 @@
 - **Bug found & fixed**: BottomNav.svelte had wrong relative asset paths (`../assets/icons/` should be `../../assets/icons/` since it's at `src/lib/components/`). Only caught at build-time (vite resolves), not check-time (svelte-check skips). Fixed by correcting to `../../assets/icons/`.
 - Playwright verification: page scrollable (bodyHeight=2182 > viewportHeight=900), iPod renders in hero (class `ipod small`), content section has dark bg, BottomNav shows 4 buttons, nav switching works (About Me → Projects)
 - Page components (AboutMe, WorkExperience, Projects, Contact) not modified
+
+## Task 6: IPod.svelte — center button toggles play/pause
+- Center button `onclick` changed from `onHomeBtnClick(); isPlaying = false` to `togglePlay()`
+- `onHomeBtnClick` prop kept for backward compatibility with `@deprecated` JSDoc
+- Exported `pauseAudio()` function added (`isPlaying = false`)
+- `pnpm run check`: 0 errors, 4 pre-existing warnings unchanged
+- Playwright verification: center button toggles "PLAYING" ↔ "PAUSED" without dismissing iPod
+- Center button is visually hidden behind `.touch-wheel` but clickable via JS (`.center-button` -> `closest('button')` -> `.click()`)
+- Evidence at `.sisyphus/evidence/task-6-type-check.txt`, `task-6-center-play.png`, `task-6-center-pause.png`
