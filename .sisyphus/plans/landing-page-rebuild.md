@@ -513,7 +513,7 @@ Parallel Speedup: ~55% faster than sequential (max 4 concurrent in Wave 1, 3 in 
   - Message: `refactor(app): restructure to one-page scrollable layout with BottomNav`
   - Files: `src/App.svelte`
 
-- [ ] 5. Implement scroll-driven progressive iPod → BottomNav morph animation
+- [x] 5. Implement scroll-driven progressive iPod → BottomNav morph animation
 
   **What to do**:
   - This is the core animation that ties the iPod hero and the BottomNav together

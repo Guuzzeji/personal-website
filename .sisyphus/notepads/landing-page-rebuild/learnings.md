@@ -76,3 +76,17 @@
 - Playwright verification: center button toggles "PLAYING" ↔ "PAUSED" without dismissing iPod
 - Center button is visually hidden behind `.touch-wheel` but clickable via JS (`.center-button` -> `closest('button')` -> `.click()`)
 - Evidence at `.sisyphus/evidence/task-6-type-check.txt`, `task-6-center-play.png`, `task-6-center-pause.png`
+
+## Task 5: Scroll-driven iPod → BottomNav morph animation
+- **API correction**: svelte-motion v0.12.2 exports `useViewportScroll()` (NOT `useScroll`). Returns `{ scrollX, scrollY, scrollXProgress, scrollYProgress }` as MotionValues.
+- **MotionValue API**: `motionValue.onChange(callback)` returns unsubscribe function. MotionValues do NOT integrate with Svelte 5 `$effect` reactivity directly — must bridge via `onMount` + `onChange` → `$state` → `$effect`.
+- **`useTransform` with function**: When `inputRangeOrTransformer` is a function (not an array), `useTransform` treats it as a functional transform. Used for dynamic `scrollProgress` calculation based on `heroHeight`.
+- **`Motion` component**: Uses `$$restProps` for style/animation props. `style={{ scale, opacity }}` works — `scale` is a framer-motion special transform property (not a CSS property, mapped internally to `transform: scale()`).
+- **Pattern**: `<Motion style={{ ... }} let:motion><div use:motion>...</div></Motion>` — call `use:motion` on the child element with the action from `let:motion`.
+- **Hysteresis bridge**: `onMount` subscribes to `scrollProgress.onChange()`, writes to a `$state` variable (`scrollProgressVal`), which triggers `$effect` for hysteresis logic. This bridges svelte-motion's subscription system to Svelte 5 runes reactivity.
+- **`pointer-events-none`**: Applied to iPod hero `<section>` via `class:pointer-events-none={isMorphed}`. Removes interaction when morphed.
+- **`bind:this` on IPod**: Used to access `ipodRef.pauseAudio()`. Typed as `any` for simplicity (Svelte 5 component ref typing is complex).
+- **`will-change-transform`**: NOT used on BottomNav wrapper — it creates a CSS containing block that breaks `position: fixed` inside the nav component.
+- **Verification**: `navOpacity` matches expected: at 80% scroll → 0.667 (correct), at 0% → 0 (correct). `pointer-events-none` class toggles correctly. No runtime errors.
+- **Build**: 415 modules, 217KB JS (includes svelte-motion treeshaken), 0 errors.
+- Evidence at `.sisyphus/evidence/task-5-build.txt`, `task-5-scroll-0.png`, `task-5-scroll-30.png`, `task-5-scroll-80.png`, `task-5-scroll-back.png`, `task-5-no-oscillation.png`

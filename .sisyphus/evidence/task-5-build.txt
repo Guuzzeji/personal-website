@@ -1,0 +1,14 @@
+$ pnpm run build
+
+✓ 415 modules transformed.
+dist/index.html                                      1.06 kB │ gzip:  0.51 kB
+dist/assets/Index Pointing Up-CdNHGfL2.svg           4.44 kB │ gzip:  3.28 kB
+dist/assets/Open File Folder-CdCpjpym.svg            4.94 kB │ gzip:  3.69 kB
+dist/assets/Winking Face With Tongue-DaddDk6g.svg    5.02 kB │ gzip:  3.76 kB
+dist/assets/Waving Hand-B9VKzX-r.svg                 5.70 kB │ gzip:  4.25 kB
+dist/assets/Necktie-CTcUzqdS.svg                     5.76 kB │ gzip:  4.33 kB
+dist/assets/index-BuJXWJVw.css                      18.96 kB │ gzip:  4.60 kB
+dist/assets/index-CjhUWDv3.js                      217.06 kB │ gzip: 80.88 kB
+✓ built in 1.14s
+
+0 errors, only pre-existing a11y warnings in IPod.svelte (unchanged)
