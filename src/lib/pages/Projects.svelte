@@ -27,6 +27,7 @@
 </script>
 
 <div class="w-full h-full p-3 overflow-y-scroll">
+  <div class="max-w-prose mx-auto py-8">
   <span class="text-3xl font-weight-800 m-2">Projects</span>
   {#if loadingContent === "loading"}
     <p>Loading content...</p>
@@ -59,4 +60,5 @@
       {/if}
     {/each}
   {/if}
+  </div>
 </div>

@@ -37,7 +37,7 @@
       </div>
     </div>
   {:else}
-    <div class="w-full h-full" in:fade={{ delay: 1000, duration: 1000 }}>
+    <div class="w-full h-full max-w-prose mx-auto py-8" in:fade={{ delay: 1000, duration: 1000 }}>
       <div class="md:text-3xl text-2xl mt-3 ml-3 font-weight-500">
         <img
           class="text-md inline item-center h-10 w-10 mb-2"

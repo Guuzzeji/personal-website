@@ -90,3 +90,15 @@
 - **Verification**: `navOpacity` matches expected: at 80% scroll → 0.667 (correct), at 0% → 0 (correct). `pointer-events-none` class toggles correctly. No runtime errors.
 - **Build**: 415 modules, 217KB JS (includes svelte-motion treeshaken), 0 errors.
 - Evidence at `.sisyphus/evidence/task-5-build.txt`, `task-5-scroll-0.png`, `task-5-scroll-30.png`, `task-5-scroll-80.png`, `task-5-scroll-back.png`, `task-5-no-oscillation.png`
+
+## Task 7: Full-width content area layout polish
+- App.svelte content section already correct: `relative z-10 min-h-screen bg-black/80 px-4 md:px-8 lg:px-12 pb-24` — no max-w, rounded, frosted glass, or backdrop-blur. No change needed.
+- All 4 page components had `w-full h-full p-3` outer containers (full-width, good) but NO inner text width constraint — text would stretch too wide on large screens.
+- Added inner `<div class="max-w-prose mx-auto py-8">` text containers to WorkExperience, Projects (wrapping all content). Contact: added `max-w-prose mx-auto py-8` to existing `text-center` div. AboutMe: added `max-w-prose mx-auto py-8` to the `{:else}` branch div (text content only; first branch WordRotate stays full-width centered).
+- `max-w-prose` = ~65ch; `mx-auto` centers the constrained block within full-width parent; `py-8` gives consistent top/bottom spacing.
+- Did NOT modify outer page containers (kept `w-full` so they fill the content section).
+- Did NOT modify App.svelte content section, iPod hero, or BottomNav.
+- `pnpm run check`: 0 errors (4 pre-existing IPod a11y warnings unchanged).
+- `pnpm run build`: succeeds, 415 modules, 217KB JS, 19KB CSS.
+- DOM verification (Playwright): content section has no max-w/rounded/frosted/backdrop-blur. WorkExperience, Projects, Contact all render `div.max-w-prose.mx-auto.py-8`. AboutMe click-to-reveal button not clickable via Playwright (pre-existing h-full collapse issue — button reports "not visible"), but source edit confirmed.
+- Evidence: `.sisyphus/evidence/task-7-build.txt`, `task-7-full-width.png`, `task-7-workexperience.png`

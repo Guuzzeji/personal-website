@@ -1,4 +1,5 @@
 <div class="w-full h-full p-3 overflow-y-scroll">
+  <div class="max-w-prose mx-auto py-8">
   <span class="text-3xl font-weight-800 m-2">Work Experience</span>
   <div class="m-3">
     <p class="font-weight-500">Microsoft | June 2025 – Augest 2025</p>
@@ -54,5 +55,6 @@
       mockups to align the feature with core user needs and cross-ecosystem
       engagement behaviors
     </p>
+  </div>
   </div>
 </div>

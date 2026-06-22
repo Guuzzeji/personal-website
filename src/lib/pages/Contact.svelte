@@ -1,5 +1,5 @@
 <div class="grid content-center w-full h-full p-3 overflow-y-scroll">
-  <div class="text-center">
+  <div class="text-center max-w-prose mx-auto py-8">
     <h1 class="text-3xl font-weight-800 m-2">Contacts & Socials</h1>
     <div class="m-3">
       <p class="font-weight-500">

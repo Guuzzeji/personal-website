@@ -719,7 +719,7 @@ Parallel Speedup: ~55% faster than sequential (max 4 concurrent in Wave 1, 3 in 
   - Message: `refactor(ipod): repurpose center button to toggle play/pause, add pauseAudio export`
   - Files: `src/lib/components/IPod.svelte`
 
-- [ ] 7. Full-width content area adjustments
+- [x] 7. Full-width content area adjustments
 
   **What to do**:
   - In App.svelte's content area (below the iPod hero), remove any remaining centered card wrappers, `max-w-*` constraints, or frosted-glass containers from the content rendering area

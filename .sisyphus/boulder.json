@@ -46,6 +46,15 @@
       "agent": "Sisyphus-Junior",
       "category": "deep",
       "updated_at": "2026-06-22T09:54:47.430Z"
+    },
+    "todo:7": {
+      "task_key": "todo:7",
+      "task_label": "7",
+      "task_title": "Full-width content area adjustments",
+      "session_id": "ses_11139654affe6gn0liqcf1Hifh",
+      "agent": "Sisyphus-Junior",
+      "category": "visual-engineering",
+      "updated_at": "2026-06-22T10:11:45.026Z"
     }
   }
 }
