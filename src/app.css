@@ -1,6 +1,106 @@
 @import "tailwindcss";
 
-:root {
-  background-color: black;
-  font-family: "Times New Roman", Times, serif;
+@theme {
+  --color-canvas: #f3f3f1;
+  --color-surface: #fbfbf9;
+  --color-surface-raised: #ffffff;
+
+  --color-ink: #0b0b0b;
+  --color-ink-soft: #5c5c58;
+  --color-muted: #e7e7e2;
+
+  --color-accent: #d2e823;
+  --color-accent-strong: #7bc90e;
+  --color-accent2: #1d4ed8;
+  --color-accent3: #8b1a1a;
+
+  --font-display: "Inter Display", "SF Pro Display", system-ui, -apple-system,
+    "Segoe UI", Roboto, sans-serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono",
+    "Fira Code", Menlo, Consolas, monospace;
+
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-card: 32px;
+  --radius-card-lg: 64px;
+  --radius-pill: 9999px;
+
+  --border-width-3: 3px;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--font-mono);
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-accent2);
+  outline-offset: 2px;
+}
+
+@layer components {
+  .card {
+    @apply bg-surface text-ink rounded-card border-3 border-ink;
+    padding: clamp(1.25rem, 2vw, 2rem);
+  }
+
+  .card-accent {
+    @apply bg-accent text-ink rounded-card border-3 border-ink;
+    padding: clamp(1.25rem, 2vw, 2rem);
+  }
+
+  .pill {
+    @apply bg-accent text-ink rounded-pill border-ink font-mono;
+    border-width: 2px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.375rem 0.875rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+
+  .section {
+    @apply px-4 md:px-8 lg:px-12;
+    padding-block: clamp(3rem, 8vw, 6rem);
+  }
 }
