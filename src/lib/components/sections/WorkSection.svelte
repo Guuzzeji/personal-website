@@ -11,7 +11,7 @@
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
 
     observer.observe(node);
@@ -78,13 +78,13 @@
             style="transition-delay: {i * 0.1}s"
           >
             <div
-              class="flex flex-col items-start gap-2 md:items-end md:pr-0 md:pt-1"
+              class="flex md:flex-col items-start gap-2 md:items-end md:pr-0 md:pt-1 pb-5 flex-row-reverse justify-center"
             >
               <span class="pill w-55 justify-center">
                 {role.date}
               </span>
               <span
-                class="font-mono text-xs text-ink-soft font-semibold tracking-wide uppercase"
+                class="font-mono md:text-xs text-md text-ink-soft font-semibold tracking-wide uppercase"
               >
                 {role.company}
               </span>
@@ -111,7 +111,8 @@
   .timeline-card {
     opacity: 0;
     transform: translateY(40px);
-    transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transition:
+      opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
       transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
