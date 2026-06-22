@@ -413,7 +413,7 @@ Parallel Speedup: ~55% faster than sequential (max 4 concurrent in Wave 1, 3 in 
   - Message: `refactor(app): remove Dock, DockIcon, SpinningText — prep for BottomNav`
   - Files: `src/App.svelte`
 
-- [ ] 4. Refactor App.svelte to one-page scrollable layout
+- [x] 4. Refactor App.svelte to one-page scrollable layout
 
   **What to do**:
   - The current iPod page uses `h-screen overflow-hidden` (line 41, 46-47) — this MUST change

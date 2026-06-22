@@ -54,3 +54,16 @@
 - Music toggle area reserved with separator `<div class="mx-2 h-6 w-px bg-white/30">` + placeholder button (Task 9 implements real UI)
 - `pnpm run check`: 0 errors (4 pre-existing IPod warnings)
 - No hover/spring/scale/svelte-motion patterns in file
+
+## Task 4: Refactor App.svelte (scrollable layout with iPod hero + content + BottomNav)
+- Removed `showIPodPlayer` state, `fade`/`blur` svelte/transition imports, unused icon imports (ABOUT_ME_ICON etc.)
+- Imported `BottomNav` from `./lib/components/BottomNav.svelte`
+- New layout: fixed fullscreen background (`-z-10`), sticky iPod hero (`h-screen h-[100dvh] sticky top-0`), content section (`min-h-screen bg-black/80 relative z-10 px-4 pb-24`), BottomNav (`fixed bottom-0 z-50`)
+- Content sections render without frosted-glass card wrapper or svelte transitions
+- `handlePageChange` scrolls content section into view with `scrollIntoView({ behavior: "smooth" })` via `bind:this`
+- iPod's `onHomeBtnClick` prop removed from binding (defaults to no-op in IPod.svelte)
+- `pnpm run check`: 0 errors (4 pre-existing IPod warnings unchanged)
+- `pnpm run build`: succeeds (171 modules, 115KB JS, 18.9KB CSS)
+- **Bug found & fixed**: BottomNav.svelte had wrong relative asset paths (`../assets/icons/` should be `../../assets/icons/` since it's at `src/lib/components/`). Only caught at build-time (vite resolves), not check-time (svelte-check skips). Fixed by correcting to `../../assets/icons/`.
+- Playwright verification: page scrollable (bodyHeight=2182 > viewportHeight=900), iPod renders in hero (class `ipod small`), content section has dark bg, BottomNav shows 4 buttons, nav switching works (About Me → Projects)
+- Page components (AboutMe, WorkExperience, Projects, Contact) not modified

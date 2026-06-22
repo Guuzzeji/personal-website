@@ -1,0 +1,12 @@
+✓ 171 modules transformed.
+dist/index.html                                      1.06 kB │ gzip:  0.51 kB
+dist/assets/Index Pointing Up-CdNHGfL2.svg           4.44 kB │ gzip:  3.28 kB
+dist/assets/Open File Folder-CdCpjpym.svg            4.94 kB │ gzip:  3.69 kB
+dist/assets/Winking Face With Tongue-DaddDk6g.svg    5.02 kB │ gzip:  3.76 kB
+dist/assets/Waving Hand-B9VKzX-r.svg                 5.70 kB │ gzip:  4.25 kB
+dist/assets/Necktie-CTcUzqdS.svg                     5.76 kB │ gzip:  4.33 kB
+dist/assets/index-Cb_UyDmg.css                      18.90 kB │ gzip:  4.58 kB
+dist/assets/index-DGrqaMoX.js                      115.40 kB │ gzip: 45.68 kB
+✓ built in 625ms
+
+0 errors. 4 pre-existing a11y warnings in IPod.svelte (unchanged).

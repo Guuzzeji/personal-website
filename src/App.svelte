@@ -1,10 +1,4 @@
 <script lang="ts">
-  // Assets
-  import ABOUT_ME_ICON from "./assets/icons/Winking Face With Tongue.svg";
-  import WORK_ICON from "./assets/icons/Necktie.svg";
-  import CONTACT_ICON from "./assets/icons/Open Mailbox With Raised Flag.svg";
-  import PROJECT_ICON from "./assets/icons/Open File Folder.svg";
-
   // Pages
   import AboutMe from "./lib/pages/AboutMe.svelte";
   import WorkExperience from "./lib/pages/WorkExperience.svelte";
@@ -13,78 +7,53 @@
 
   // Components
   import IPod from "./lib/components/IPod.svelte";
-  import { fade, blur } from "svelte/transition";
+  import BottomNav from "./lib/components/BottomNav.svelte";
 
   let currentPage = $state("about-me");
+  let contentSection = $state<HTMLElement>();
+
   function handlePageChange(page: string) {
     if (page === currentPage) return;
     currentPage = page;
+    contentSection?.scrollIntoView({ behavior: "smooth" });
   }
-
-  let showIPodPlayer = $state(true);
 </script>
 
-<main>
-  <!-- Background -->
-  <div>
+<main class="relative">
+  <!-- Background stays fixed/fullscreen -->
+  <div class="fixed inset-0 -z-10">
     <img
-      class="absolute z-1 w-full h-full p-40vh object-cover"
+      class="w-full h-full object-cover"
       src="/background/main.jpg"
       alt="Background"
     />
   </div>
-  <!-- Foreground -->
-  <div class="flex h-screen p-5 overflow-hidden">
-    {#if showIPodPlayer}
-      <div
-        in:blur={{ duration: 500 }}
-        out:blur={{ duration: 500 }}
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 sm:h-2/3 min-w-full max-w-full md:min-w-2/3 md:max-w-2/3 drop-shadow-xl/50 bg-[rgba(255,255,255,0.5)] backdrop-blur p-5 z-1 md:rounded-4xl overflow-hidden grid content-center place-content-center"
-      >
-        <IPod onHomeBtnClick={() => (showIPodPlayer = false)} />
-      </div>
-    {:else}
-      <div
-        class="absolute drop-shadow-xl/50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-10/16 grid place-items-center m-auto h-2/3 w-full md:min-w-2/3 md:max-w-2/3 bg-[rgba(255,255,255,0.5)] backdrop-blur p-4 z-1 rounded-md overflow-hidden"
-        in:blur={{ delay: 500, duration: 1000 }}
-      >
-        <div class="h-full w-full border rounded-md overflow-hidden">
-          {#if currentPage === "about-me"}
-            <div
-              class="h-full w-full"
-              in:fade={{ duration: 1000 }}
-              out:fade={{ duration: 400 }}
-            >
-              <AboutMe />
-            </div>
-          {:else if currentPage === "work-experience"}
-            <div
-              class="h-full w-full"
-              in:fade={{ duration: 1000 }}
-              out:fade={{ duration: 400 }}
-            >
-              <WorkExperience />
-            </div>
-          {:else if currentPage === "projects"}
-            <div
-              class="h-full w-full"
-              in:fade={{ duration: 1000 }}
-              out:fade={{ duration: 400 }}
-            >
-              <Projects />
-            </div>
-          {:else if currentPage === "contacts"}
-            <div
-              class="h-full w-full"
-              in:fade={{ duration: 1000 }}
-              out:fade={{ duration: 400 }}
-            >
-              <Contact />
-            </div>
-          {/if}
-        </div>
-      </div>
 
+  <!-- iPod Hero Section -->
+  <section class="h-screen h-[100dvh] sticky top-0 flex items-center justify-center">
+    <IPod />
+  </section>
+
+  <!-- Content Section -->
+  <section
+    bind:this={contentSection}
+    class="relative z-10 min-h-screen bg-black/80 px-4 md:px-8 lg:px-12 pb-24"
+  >
+    {#if currentPage === "about-me"}
+      <AboutMe />
+    {:else if currentPage === "work-experience"}
+      <WorkExperience />
+    {:else if currentPage === "projects"}
+      <Projects />
+    {:else if currentPage === "contacts"}
+      <Contact />
     {/if}
-  </div>
+  </section>
+
+  <!-- Bottom Navigation -->
+  <BottomNav
+    currentPage={currentPage}
+    onNavigate={handlePageChange}
+    showMusicToggle={false}
+  />
 </main>

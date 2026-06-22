@@ -28,6 +28,15 @@
       "agent": "Sisyphus-Junior",
       "category": "visual-engineering",
       "updated_at": "2026-06-22T09:23:10.750Z"
+    },
+    "todo:4": {
+      "task_key": "todo:4",
+      "task_label": "4",
+      "task_title": "Refactor App.svelte to one-page scrollable layout",
+      "session_id": "ses_111595f77ffeUjr8w0kqXJ1R2G",
+      "agent": "Sisyphus-Junior",
+      "category": "deep",
+      "updated_at": "2026-06-22T09:32:24.067Z"
     }
   }
 }

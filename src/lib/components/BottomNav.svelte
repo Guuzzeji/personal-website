@@ -1,9 +1,9 @@
 <script lang="ts">
   import { navItems } from "../types";
-  import ABOUT_ICON from "../assets/icons/Winking Face With Tongue.svg";
-  import WORK_ICON from "../assets/icons/Necktie.svg";
-  import PROJECT_ICON from "../assets/icons/Open File Folder.svg";
-  import CONTACT_ICON from "../assets/icons/Open Mailbox With Raised Flag.svg";
+  import ABOUT_ICON from "../../assets/icons/Winking Face With Tongue.svg";
+  import WORK_ICON from "../../assets/icons/Necktie.svg";
+  import PROJECT_ICON from "../../assets/icons/Open File Folder.svg";
+  import CONTACT_ICON from "../../assets/icons/Open Mailbox With Raised Flag.svg";
 
   interface Props {
     currentPage: string;
