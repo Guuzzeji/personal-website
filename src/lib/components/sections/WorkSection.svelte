@@ -1,4 +1,28 @@
 <script lang="ts">
+  let visible = $state<Record<number, boolean>>({});
+
+  function inView(node: HTMLElement, i: number) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            visible[i] = true;
+            observer.unobserve(node);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(node);
+
+    return {
+      destroy() {
+        observer.disconnect();
+      },
+    };
+  }
+
   const roles = [
     {
       title: "Software Engineer Intern",
@@ -48,7 +72,10 @@
       <ol class="flex flex-col gap-10 md:gap-12">
         {#each roles as role, i}
           <li
-            class="flex flex-col md:grid md:grid-cols-[10rem_1fr] md:gap-6 relative"
+            use:inView={i}
+            class:is-visible={visible[i]}
+            class="timeline-card flex flex-col md:grid md:grid-cols-[10rem_1fr] md:gap-6 relative"
+            style="transition-delay: {i * 0.1}s"
           >
             <div
               class="flex flex-col items-start gap-2 md:items-end md:pr-0 md:pt-1"
@@ -79,3 +106,17 @@
     </div>
   </div>
 </section>
+
+<style>
+  .timeline-card {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+      transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .timeline-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
