@@ -8,16 +8,16 @@
   let showAboutMeInfo = $state(false);
   let handleShowContent = () => {
     showAboutMeInfo = true;
-    // console.log(showAboutMeInfo);
+
   };
 </script>
 
-<div class="w-full h-full p-3 md:overflow-y-hidden overflow-y-scroll">
+<div class="w-full h-full p-3 md:overflow-y-hidden overflow-y-scroll text-center">
   {#if !showAboutMeInfo}
     <div out:fade={{ duration: 500 }} class="w-full h-full overflow-hidden">
       <button
         onclick={handleShowContent}
-        class="grid content-center w-full h-full cursor-pointer"
+        class="grid content-center w-full h-full cursor-pointer text-white"
       >
         <WordRotate
           class="md:text-9xl text-8xl font-[time] font-bold"
@@ -26,7 +26,7 @@
         />
       </button>
       <div class="grid content-center w-full h-5">
-        <div class="text-center mb-15">
+        <div class="text-center mb-15 text-orange-400">
           Click to learn
           <img
             class="text-md inline item-center h-5 w-5 mb-2"
@@ -38,7 +38,7 @@
     </div>
   {:else}
     <div class="w-full h-full max-w-prose mx-auto py-8" in:fade={{ delay: 1000, duration: 1000 }}>
-      <div class="md:text-3xl text-2xl mt-3 ml-3 font-weight-500">
+      <div class="md:text-3xl text-2xl mt-3 ml-3 font-medium text-white">
         <img
           class="text-md inline item-center h-10 w-10 mb-2"
           src={WAVE_ICON}
@@ -46,13 +46,13 @@
         />
         Hello, I'm Gabe
       </div>
-      <p class="m-3 md:text-2xl text-sm">
+      <p class="m-3 md:text-2xl text-sm text-white">
         <i
           >(a.k.a. Guuzzeji Online! A full-stack developer and backend
           developer)</i
         >
       </p>
-      <div class="md:text-xl">
+      <div class="md:text-xl text-white text-left">
         <p class="m-3">
           I am a full-stack developer with a strong focus and passion for the
           backend, specializing in architecting robust and scalable systems. I

@@ -6,6 +6,7 @@
   import WorkExperience from "./lib/pages/WorkExperience.svelte";
   import Projects from "./lib/pages/Projects.svelte";
   import Contact from "./lib/pages/Contact.svelte";
+  import AIChat from "./lib/pages/AIChat.svelte";
 
   // Components
   import IPod from "./lib/components/IPod.svelte";
@@ -22,12 +23,25 @@
 
   let currentPage = $state("about-me");
   let contentSection = $state<HTMLElement>();
-  let ipodRef: { pauseAudio: () => void } | undefined = $state();
+  let isMusicPlaying = $state(false);
+  let aiChatOpen = $state(false);
+  let ipodRef:
+    | { pauseAudio: () => void; togglePlay: () => void }
+    | undefined = $state();
 
   function handlePageChange(page: string) {
-    if (page === currentPage) return;
+    if (page === currentPage && !aiChatOpen) return;
+    aiChatOpen = false;
     currentPage = page;
     contentSection?.scrollIntoView({ behavior: "smooth" });
+  }
+
+  function handlePlayStateChange(playing: boolean) {
+    isMusicPlaying = playing;
+  }
+
+  function handleAIChatToggle() {
+    aiChatOpen = !aiChatOpen;
   }
 
   // ── Scroll-Driven Morph Animation ──
@@ -81,6 +95,7 @@
       ipodRef?.pauseAudio();
     } else if (isMorphed && progress < 0.4) {
       isMorphed = false;
+      aiChatOpen = false;
       currentPage = "about-me";
     }
   });
@@ -104,7 +119,7 @@
     >
       <Motion style={{ scale: iPodScale, opacity: iPodOpacity }} let:motion>
         <div use:motion class="will-change-transform">
-          <IPod bind:this={ipodRef} />
+          <IPod bind:this={ipodRef} onPlayStateChange={handlePlayStateChange} />
         </div>
       </Motion>
     </section>
@@ -112,9 +127,11 @@
     <!-- Content Section -->
     <section
       bind:this={contentSection}
-      class="relative z-10 min-h-screen bg-black/80 px-4 md:px-8 lg:px-12 pb-24"
+      class="relative z-10 min-h-screen bg-black/80 px-4 md:px-8 lg:px-12 pb-[calc(6rem+env(safe-area-inset-bottom))]"
     >
-      {#if currentPage === "about-me"}
+      {#if aiChatOpen}
+        <AIChat />
+      {:else if currentPage === "about-me"}
         <AboutMe />
       {:else if currentPage === "work-experience"}
         <WorkExperience />
@@ -131,7 +148,7 @@
         <BottomNav
           currentPage={currentPage}
           onNavigate={handlePageChange}
-          showMusicToggle={false}
+          onAIChatToggle={handleAIChatToggle}
         />
       </div>
     </Motion>

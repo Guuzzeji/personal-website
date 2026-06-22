@@ -8,17 +8,13 @@
   interface Props {
     currentPage: string;
     onNavigate: (page: string) => void;
-    showMusicToggle?: boolean;
-    isMusicPlaying?: boolean;
-    onMusicToggle?: () => void;
+    onAIChatToggle: () => void;
   }
 
   let {
     currentPage,
     onNavigate,
-    showMusicToggle = false,
-    isMusicPlaying = false,
-    onMusicToggle,
+    onAIChatToggle,
   }: Props = $props();
 
   const iconMap: Record<string, string> = {
@@ -27,47 +23,108 @@
     "projects": PROJECT_ICON,
     "contacts": CONTACT_ICON,
   };
+
+  let menuExpanded = $state(false);
+
+  $effect(() => {
+    const check = () => {
+      if (typeof window !== "undefined" && window.innerWidth >= 768) {
+        menuExpanded = true;
+      }
+    };
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  });
+
+  function toggleMenu() {
+    menuExpanded = !menuExpanded;
+  }
+
+  function handleNavigate(id: string) {
+    onNavigate(id);
+    menuExpanded = false;
+  }
 </script>
 
 <nav
-  class="fixed bottom-0 left-0 right-0 z-50 h-14 md:h-16 bg-[rgba(255,255,255,0.5)] backdrop-blur pb-[env(safe-area-inset-bottom)]"
+  class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50"
   aria-label="Primary"
 >
-  <div class="flex h-full items-stretch justify-around">
-    {#each navItems as item (item.id)}
+  <div
+    class="flex items-center gap-3 px-4 h-12 bg-black/90 backdrop-blur-xl rounded-full shadow-lg shadow-black/50 border border-white/10 text-white text-sm"
+  >
+    <div class="flex items-center gap-2">
       <button
         type="button"
-        aria-label={item.label}
-        aria-current={currentPage === item.id ? "page" : undefined}
-        onclick={() => onNavigate(item.id)}
-        class="flex flex-1 flex-col items-center justify-center gap-0.5 text-xs md:flex-row md:gap-2 md:text-sm {currentPage ===
-        item.id
-          ? "border-t-2 border-orange-500 text-orange-500"
-          : "border-t-2 border-transparent text-black"}"
+        class="md:hidden flex items-center gap-2"
+        aria-label="Toggle menu"
+        aria-expanded={menuExpanded}
+        onclick={toggleMenu}
       >
-        <img
-          src={iconMap[item.id]}
-          alt=""
-          class="h-5 w-5 md:hidden"
+        <span
+          class="w-2 h-2 rounded-full bg-yellow-300 shadow-[0_0_6px_#fde047]"
           aria-hidden="true"
-        />
-        <span>{item.label}</span>
+        ></span>
+        <span class="text-xs text-white/70">Menu</span>
+        <span class="relative w-4 h-3" aria-hidden="true">
+          <span
+            class="absolute left-0 top-1/2 h-0.5 w-full bg-white rounded-full transition-transform duration-300"
+            style:transform={menuExpanded ? "rotate(45deg)" : "translateY(-5px)"}
+            style:transform-origin="center"
+          ></span>
+          <span
+            class="absolute left-0 top-1/2 h-0.5 w-full bg-white rounded-full transition-transform duration-300"
+            style:transform={menuExpanded ? "rotate(-45deg)" : "translateY(5px)"}
+            style:transform-origin="center"
+          ></span>
+        </span>
       </button>
-    {/each}
 
-    {#if showMusicToggle}
-      <div class="flex items-center">
-        <div class="mx-2 h-6 w-px bg-white/30"></div>
+      {#each navItems as item (item.id)}
         <button
           type="button"
-          aria-label={isMusicPlaying ? "Pause music" : "Play music"}
-          onclick={() => onMusicToggle?.()}
-          class="flex w-12 items-center justify-center text-xs text-black"
+          aria-label={item.label}
+          aria-current={currentPage === item.id ? "page" : undefined}
+          onclick={() => handleNavigate(item.id)}
+          class="relative flex items-center gap-1 {currentPage === item.id
+            ? "text-orange-500"
+            : "text-white/60 hover:text-white transition-colors"}"
         >
-          <span class="md:hidden">{isMusicPlaying ? "♪" : "♪"}</span>
-          <span class="hidden md:inline">{isMusicPlaying ? "Pause" : "Play"}</span>
+          <img
+            src={iconMap[item.id]}
+            alt=""
+            class="h-4 w-4 shrink-0"
+            aria-hidden="true"
+          />
+          <span class="{menuExpanded ? "inline" : "hidden"} md:inline">{item.label}</span>
+          {#if currentPage === item.id}
+            <span
+              class="absolute -bottom-1 left-1/2 -translate-x-1/2 h-1 w-1 rounded-full bg-orange-500"
+              aria-hidden="true"
+            ></span>
+          {/if}
         </button>
-      </div>
-    {/if}
+      {/each}
+    </div>
+
+    <button
+      type="button"
+      class="ml-auto flex items-center gap-1 px-3 py-1.5 bg-orange-500 hover:bg-orange-600 rounded-full text-black text-xs font-medium transition-colors"
+      aria-label="Toggle AI chat"
+      onclick={() => onAIChatToggle()}
+    >
+      <svg
+        viewBox="0 0 24 24"
+        class="w-3 h-3"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path
+          d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z"
+        />
+      </svg>
+      AI
+    </button>
   </div>
 </nav>

@@ -27,15 +27,15 @@
 </script>
 
 <div class="w-full h-full p-3 overflow-y-scroll">
-  <div class="max-w-prose mx-auto py-8">
-  <span class="text-3xl font-weight-800 m-2">Projects</span>
+  <div class="max-w-prose mx-auto py-8 text-center">
+  <span class="text-3xl font-extrabold m-2 text-orange-400">Projects</span>
   {#if loadingContent === "loading"}
-    <p>Loading content...</p>
+    <p class="text-white">Loading content...</p>
   {:else if loadingContent === "success"}
     <div class="m-2">
-      <p class="font-weight-500">
+      <p class="font-medium text-white">
         <i>
-          (Follow me on <a class="underline" href="https://github.com/Guuzzeji"
+          (Follow me on <a class="underline text-white" href="https://github.com/Guuzzeji"
             >GitHub @Guuzzeji</a
           >)
         </i>
@@ -43,20 +43,20 @@
     </div>
     {#each projects as project}
       <div class="m-2">
-        <p class="font-bold">
-          <a class="underline" href={project.html_url}>{project.name}</a>
+        <p class="font-bold text-white">
+          <a class="underline text-orange-400" href={project.html_url}>{project.name}</a>
           {#if project.language !== null && project.language !== undefined && project.language != ""}
             - {project.language}
           {/if}
         </p>
         {#if project.description}
-          <p class="m-2 font-weight-500">{project.description}</p>
+          <p class="m-2 font-medium text-white text-left">{project.description}</p>
         {:else}
-          <p class="m-2 font-weight-500">No description available</p>
+          <p class="m-2 font-medium text-white text-left">No description available</p>
         {/if}
       </div>
       {#if projects.indexOf(project) !== projects.length - 1}
-        <hr />
+        <hr class="border-white/20" />
       {/if}
     {/each}
   {/if}

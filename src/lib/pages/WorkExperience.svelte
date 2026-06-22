@@ -1,11 +1,11 @@
 <div class="w-full h-full p-3 overflow-y-scroll">
-  <div class="max-w-prose mx-auto py-8">
-  <span class="text-3xl font-weight-800 m-2">Work Experience</span>
+  <div class="max-w-prose mx-auto py-8 text-center">
+  <span class="text-3xl font-extrabold m-2 text-orange-400">Work Experience</span>
   <div class="m-3">
-    <p class="font-weight-500">Microsoft | June 2025 – Augest 2025</p>
-    <p class="font-weight-500">Software Engineer Intern</p>
-    <hr class="m-3" />
-    <p class="m-3">
+    <p class="font-medium text-white">Microsoft | June 2025 – August 2025</p>
+    <p class="font-medium text-white">Software Engineer Intern</p>
+    <hr class="m-3 border-white/20" />
+    <p class="m-3 text-white text-left">
       Collaborated with the Xbox Live team (PlayFab) to architect and implement
       a new event-driven model for leaderboards and player statistics using
       PlayStream, developing both the React.js front-end and the C# back-end
@@ -17,10 +17,10 @@
     </p>
   </div>
   <div class="m-3">
-    <p class="font-weight-500">Microsoft | June 2024 – Augest 2024</p>
-    <p class="font-weight-500">Software Engineer Intern</p>
-    <hr class="m-3" />
-    <p class="m-3">
+    <p class="font-medium text-white">Microsoft | June 2024 – August 2024</p>
+    <p class="font-medium text-white">Software Engineer Intern</p>
+    <hr class="m-3 border-white/20" />
+    <p class="m-3 text-white text-left">
       I partnered with the Xbox Live team (PlayFab) to engineer tools and
       services supporting game studios in implementing Large Language Models
       (LLMs) for automated task execution, focusing on Microsoft Semantic Kernel
@@ -33,10 +33,10 @@
     </p>
   </div>
   <div class="m-3">
-    <p class="font-weight-500">Microsoft | May 2023 – Augest 2023</p>
-    <p class="font-weight-500">Explore Intern</p>
-    <hr class="m-3" />
-    <p class="m-3">
+    <p class="font-medium text-white">Microsoft | May 2023 – August 2023</p>
+    <p class="font-medium text-white">Explore Intern</p>
+    <hr class="m-3 border-white/20" />
+    <p class="m-3 text-white text-left">
       I delivered scalable tools and services with the Xbox Live Leaderboards
       team to enhance cross-platform player engagement for both third-party and
       first-party game titles. I combined software engineering and project
@@ -46,10 +46,10 @@
     </p>
   </div>
   <div class="m-3">
-    <p class="font-weight-500">Microsoft | July 2022 – Augest 2022</p>
-    <p class="font-weight-500">Discovery Program Intern</p>
-    <hr class="m-3" />
-    <p class="m-3">
+    <p class="font-medium text-white">Microsoft | July 2022 – August 2022</p>
+    <p class="font-medium text-white">Discovery Program Intern</p>
+    <hr class="m-3 border-white/20" />
+    <p class="m-3 text-white text-left">
       I drove the customer-centric evolution of the Xbox Wishlist feature,
       prototyping enhanced UX designs in Figma and building interactive React.js
       mockups to align the feature with core user needs and cross-ecosystem

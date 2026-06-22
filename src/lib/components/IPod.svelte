@@ -1,17 +1,25 @@
 <script lang="ts">
   /** @deprecated The iPod no longer dismisses on center button click. */
-  let { onHomeBtnClick = () => {} } = $props();
+  let {
+    onHomeBtnClick = () => {},
+    onPlayStateChange = (_playing: boolean) => {},
+  }: {
+    onHomeBtnClick?: () => void;
+    onPlayStateChange?: (playing: boolean) => void;
+  } = $props();
 
   let isPlaying = $state(false);
   let isAudioReady = $state(false);
   let volume = $state(0.1);
 
-  function togglePlay() {
+  export function togglePlay() {
     isPlaying = !isPlaying;
+    onPlayStateChange(!isPlaying);
   }
 
   export function pauseAudio() {
     isPlaying = false;
+    onPlayStateChange(false);
   }
 
   function changeVolume(increase: boolean) {
