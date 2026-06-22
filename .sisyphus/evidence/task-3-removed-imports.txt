@@ -1,0 +1,2 @@
+Grep verification: Zero references to Dock, DockIcon, SpinningText, or FUN_ICON in src/App.svelte
+Status: CLEAN - All removals successful
