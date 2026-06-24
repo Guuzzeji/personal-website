@@ -25,6 +25,13 @@
 
   const roles = [
     {
+      title: "Database System Researcher Engineer",
+      company: "Moment",
+      date: "October 2025 – May 2026",
+      description:
+        "Architected a local-first, reactive data engine for collaborative applications, leveraging Incremental View Maintenance (IVM) to calculate and stream granular delta updates. Reduced network payload sizes by 85% and decreased average query latency from 120ms to under 5ms, ensuring strict real-time consistency between localized client state and the relational backend.",
+    },
+    {
       title: "Software Engineer Intern",
       company: "Microsoft",
       date: "June 2025 – August 2025",
