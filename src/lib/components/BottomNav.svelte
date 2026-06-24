@@ -72,7 +72,9 @@
       isProgrammaticScroll = true;
       activeId = id;
 
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      // apply 20px offset
+      const y = el.getBoundingClientRect().top + window.scrollY + 20;
+      window.scrollTo({ behavior: "smooth", top: y });
 
       // Clear any existing timeouts to prevent early unlocks
       clearTimeout(scrollTimeout);
