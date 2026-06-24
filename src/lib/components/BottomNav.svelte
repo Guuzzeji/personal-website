@@ -12,9 +12,9 @@
   // Handle onload for small screens
   let deviceSmall = $state<boolean>(false);
   const smallScreenBreakpoint = 640;
+
   onMount(() => {
     if (window.innerWidth <= smallScreenBreakpoint) deviceSmall = true;
-    console.log(deviceSmall);
   });
 
   interface Section {
@@ -33,31 +33,55 @@
 
   let activeId = $state<string>(sections[0].id);
 
+  // --- THE FIX: State to track if we are actively smooth scrolling ---
+  let isProgrammaticScroll = false;
+  let scrollTimeout: ReturnType<typeof setTimeout>;
+
   $effect(() => {
     if (typeof IntersectionObserver === "undefined") return;
+
     const observer = new IntersectionObserver(
       (entries) => {
+        // If the user clicked a link, ignore the scroll intersections
+        // until the smooth scroll is finished to prevent bouncing.
+        if (isProgrammaticScroll) return;
+
         const visible = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
         if (visible[0]) {
           activeId = visible[0].target.id;
         }
       },
       { rootMargin: "-45% 0px -50% 0px", threshold: [0, 0.25, 0.5, 0.25] },
     );
+
     for (const s of sections) {
       const el = document.getElementById(s.id);
       if (el) observer.observe(el);
     }
+
     return () => observer.disconnect();
   });
 
   function scrollToSection(id: string) {
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      // Lock the observer and instantly move the bubble to the target
+      isProgrammaticScroll = true;
       activeId = id;
+
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      // Clear any existing timeouts to prevent early unlocks
+      clearTimeout(scrollTimeout);
+
+      // Unlock the observer after the smooth scroll duration
+      // (1000ms is a very safe buffer for standard native smooth scrolls)
+      scrollTimeout = setTimeout(() => {
+        isProgrammaticScroll = false;
+      }, 1000);
     }
   }
 
@@ -67,7 +91,6 @@
     );
     mediaQuery.addEventListener("change", ({ matches }) => {
       deviceSmall = matches;
-      console.log(deviceSmall);
     });
   }
 
