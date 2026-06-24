@@ -1,25 +1,31 @@
 @import "tailwindcss";
 
 @theme {
-  --color-canvas: #f3f3f1;
-  --color-surface: #fbfbf9;
-  --color-surface-raised: #ffffff;
+  /* Deep iOS Dark Mode Backgrounds */
+  --color-canvas: #000000; /* Pure black (iOS dark mode background) */
+  --color-surface: #1c1c1e; /* Dark grey for cards and containers */
+  --color-surface-raised: #2c2c2e; /* Slightly lighter grey for elevated elements */
 
-  --color-ink: #0b0b0b;
-  --color-ink-soft: #5c5c58;
-  --color-muted: #e7e7e2;
+  /* Crisp White Typography */
+  --color-ink: #ffffff; /* Pure white primary text */
+  --color-ink-soft: #98989d; /* iOS secondary text for dark mode */
+  --color-muted: #3a3a3c; /* Dark muted grey for borders and received bubbles */
 
-  --color-accent: #d2e823;
-  --color-accent-strong: #7bc90e;
-  --color-accent2: #1d4ed8;
-  --color-accent3: #8b1a1a;
+  /* iMessage Blue Accents (Dark Mode Adjusted) */
+  --color-accent: #0a84ff; /* iOS Dark Mode iMessage Blue (brighter for contrast) */
+  --color-accent-strong: #0066cc; /* Darker/richer blue for hover or active states */
+  --color-accent2: #5ebdff; /* Lighter blue (top color of the dark mode bubble gradient) */
+  --color-accent3: #003366; /* Very deep blue for subtle background tints */
 
-  --font-display: "Inter Display", "SF Pro Display", system-ui, -apple-system,
-    "Segoe UI", Roboto, sans-serif;
-  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
-    Arial, sans-serif;
-  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono",
-    "Fira Code", Menlo, Consolas, monospace;
+  --font-display:
+    "Inter Display", "SF Pro Display", system-ui, -apple-system, "Segoe UI",
+    Roboto, sans-serif;
+  --font-body:
+    system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  --font-mono:
+    ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", "Fira Code",
+    Menlo, Consolas, monospace;
 
   --radius-sm: 12px;
   --radius-md: 20px;

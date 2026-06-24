@@ -10,9 +10,14 @@
 
 <main class="relative">
   <div class="fixed inset-0 -z-10">
-    <video autoplay muted loop playsinline class="w-full h-full object-cover">
+    <!-- <video autoplay muted loop playsinline class="w-full h-full object-cover">
       <source src="/background/v0.mp4" type="video/mp4" />
-    </video>
+    </video> -->
+    <img
+      class="w-full h-full object-cover"
+      src="/background/Raphael_School_of_Athens.jpg"
+      alt="background"
+    />
   </div>
   <HeroSection />
   <AboutSection />

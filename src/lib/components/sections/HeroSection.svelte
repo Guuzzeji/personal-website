@@ -30,7 +30,7 @@
   class="section text-ink h-screen flex flex-col justify-center"
 >
   <!-- Removed the global opacity-25 so text stays fully opaque -->
-  <div class="relative max-w-5xl mx-auto w-full bottom-15">
+  <div class="relative max-w-5xl mx-auto w-full bottom-8">
     <!-- Decorative square: Changed from bg-accent to iMessage blue -->
     <div
       class="hidden md:block absolute -right-4 -bottom-4 w-28 h-28 bg-[#007AFF] rounded-card-lg border-ink shadow-lg"
@@ -39,10 +39,11 @@
 
     <!-- Glass Card: Added background transparency, blur, and a subtle border -->
     <article
-      class="card rounded-card-sm relative z-10 bg-white/30 backdrop-blur-md border border-white/40 shadow-2xl p-8 sm:p-12"
+      class="card rounded-card-sm relative z-10 bg-gray-600/60 backdrop-blur-md border border-white/40 shadow-2xl p-8 sm:p-12"
     >
-      <span class="pill absolute -top-3 left-6 md:left-10 bg-white"
-        >Hello!!</span
+      <span
+        class="pill absolute -top-3 left-6 md:left-10 bg-white text-black text-lg md:text-2xl"
+        >😜 I'm Gabe Sanders</span
       >
 
       <Motion
@@ -52,15 +53,6 @@
         let:motion
       >
         <div use:motion class="flex flex-col gap-6 md:gap-8 pt-4">
-          <Motion variants={itemVariants} let:motion>
-            <h1
-              use:motion
-              class="font-display text-ink text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.9] tracking-tight drop-shadow-sm"
-            >
-              Gabe Sanders
-            </h1>
-          </Motion>
-
           <Motion variants={itemVariants} let:motion>
             <p
               use:motion
@@ -76,7 +68,10 @@
               use:motion
               class="text-ink-blue text-lg md:text-xl max-w-prose font-medium"
             >
-              I build scalable systems and products that feel alive.
+              I build scalable systems and products that feel alive. I believe
+              software is the ultimate lever to amplify human potential, and I
+              architect the infrastructure that makes those experiences
+              instantaneous, robust, and globally accessible.
             </p>
           </Motion>
 

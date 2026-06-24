@@ -81,25 +81,33 @@
           <li
             use:inView={i}
             class:is-visible={visible[i]}
-            class="timeline-card flex flex-col md:grid md:grid-cols-[10rem_1fr] md:gap-6 relative"
+            class="timeline-card flex flex-col md:grid md:grid-cols-[10rem_1fr] md:gap-6 relative group"
             style="transition-delay: {i * 0.1}s"
           >
+            <!-- Left Column: Date and Company -->
             <div
-              class="flex md:flex-col items-start gap-2 md:items-end md:pr-0 md:pt-1 pb-5 flex-row-reverse justify-center"
+              class="flex md:flex-col items-start gap-2 md:items-end md:pr-0 md:pt-1 pb-5 flex-row-reverse justify-center md:justify-start"
             >
-              <span class="pill w-55 justify-center">
+              <!-- Updated the pill to be a frosted glass badge -->
+              <span
+                class="inline-flex items-center justify-center w-55 px-4 py-1.5 text-sm font-medium rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-ink shadow-sm transition-colors duration-300 group-hover:bg-white/15 group-hover:border-white/30"
+              >
                 {role.date}
               </span>
               <span
-                class="font-mono md:text-xs text-md text-ink-soft font-semibold tracking-wide uppercase"
+                class="font-mono md:text-xs text-sm text-ink-soft font-semibold tracking-wide uppercase mt-1"
               >
                 {role.company}
               </span>
             </div>
 
-            <article class="card rounded-card-sm">
+            <!-- Right Column: Glass Content Card -->
+            <!-- Replaced the generic 'card' class with Tailwind glass utilities -->
+            <article
+              class="rounded-4xl p-6 md:p-8 rounded-card-sm bg-white/10 backdrop-blur-2xl border border-white/20 shadow-sm transition-all duration-300 group-hover:bg-white/15 group-hover:border-white/30 group-hover:shadow-md"
+            >
               <h3
-                class="font-display text-ink text-lg md:text-xl font-extrabold leading-snug mb-3"
+                class="font-display text-ink text-lg md:text-xl font-semibold leading-snug tracking-tight mb-2"
               >
                 {role.title}
               </h3>

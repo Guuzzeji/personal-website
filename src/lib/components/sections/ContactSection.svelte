@@ -1,11 +1,50 @@
 <script lang="ts">
-  import { Motion } from 'svelte-motion';
+  import { Motion } from "svelte-motion";
 
   const springTransition = {
-    type: 'spring',
+    type: "spring",
     stiffness: 400,
     damping: 17,
   };
+
+  const contactData = [
+    {
+      href: "mailto:gabe.business.code@outlook.com",
+      icon: "📧",
+      title: "Email",
+      subtitle: "gabe.business.code@outlook.com",
+    },
+    {
+      herf: "https://www.reddit.com/user/Guuzzeji/",
+      icon: "🌐",
+      title: "Reddit",
+      subtitle: "@Guuzzeji",
+    },
+    {
+      herf: "https://www.youtube.com/@guuzzeji",
+      icon: "📺",
+      title: "YouTube",
+      subtitle: "@Guuzzeji",
+    },
+    {
+      herf: "https://github.com/Guuzzeji",
+      icon: "🐙",
+      title: "GitHub",
+      subtitle: "@Guuzzeji",
+    },
+    {
+      herf: "https://twitter.com/Guuzzeji",
+      icon: "🐦",
+      title: "Twitter/X",
+      subtitle: "@Guuzzeji",
+    },
+    {
+      href: "https://backr00m.xyz/",
+      icon: "👨‍💻",
+      title: "Blog",
+      subtitle: "backr00m.xyz",
+    },
+  ];
 </script>
 
 <section id="contact" class="section bg-canvas text-ink">
@@ -17,155 +56,36 @@
     </h2>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
-      <Motion
-        whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 0.96 }}
-        transition={springTransition}
-        let:motion
-      >
-        <a
-          use:motion
-          href="mailto:gabe.business.code@outlook.com"
-          class="card-accent rounded-card-sm group transition-shadow duration-200 hover:shadow-[4px_4px_0_0_var(--color-ink)] flex items-center gap-4"
+      {#each contactData as contact}
+        <Motion
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.96 }}
+          transition={springTransition}
+          let:motion
         >
-          <span class="text-2xl" aria-hidden="true">&#9993;</span>
-          <div>
-            <h3
-              class="font-display text-ink text-lg md:text-xl font-extrabold leading-tight"
+          <a
+            use:motion
+            href={contact.href}
+            class="group rounded-4xl flex items-center gap-4 p-5 rounded-card-sm bg-white/10 backdrop-blur-2xl border border-white/20 shadow-sm transition-all duration-300 hover:bg-white/15 hover:border-white/30 hover:shadow-md"
+          >
+            <!-- Optional: You can add 'text-accent' here if you want the icon to be iMessage blue -->
+            <span class="text-2xl drop-shadow-sm" aria-hidden="true"
+              >{contact.icon}</span
             >
-              Email
-            </h3>
-            <p class="text-ink-soft text-sm">gabe.business.code@outlook.com</p>
-          </div>
-        </a>
-      </Motion>
 
-      <Motion
-        whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 0.96 }}
-        transition={springTransition}
-        let:motion
-      >
-        <a
-          use:motion
-          href="https://github.com/Guuzzeji"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="card rounded-card-sm group transition-shadow duration-200 hover:shadow-[4px_4px_0_0_var(--color-ink)] flex items-center gap-4"
-        >
-          <span class="text-2xl" aria-hidden="true">&#9906;</span>
-          <div>
-            <h3
-              class="font-display text-ink text-lg md:text-xl font-extrabold leading-tight"
-            >
-              GitHub
-            </h3>
-            <p class="text-ink-soft text-sm md:text-base">@Guuzzeji</p>
-          </div>
-        </a>
-      </Motion>
-
-      <Motion
-        whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 0.96 }}
-        transition={springTransition}
-        let:motion
-      >
-        <a
-          use:motion
-          href="https://www.reddit.com/user/Guuzzeji/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="card rounded-card-sm group transition-shadow duration-200 hover:shadow-[4px_4px_0_0_var(--color-ink)] flex items-center gap-4"
-        >
-          <span class="text-2xl" aria-hidden="true">&#128172;</span>
-          <div>
-            <h3
-              class="font-display text-ink text-lg md:text-xl font-extrabold leading-tight"
-            >
-              Reddit
-            </h3>
-            <p class="text-ink-soft text-sm md:text-base">u/Guuzzeji</p>
-          </div>
-        </a>
-      </Motion>
-
-      <Motion
-        whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 0.96 }}
-        transition={springTransition}
-        let:motion
-      >
-        <a
-          use:motion
-          href="https://www.youtube.com/@guuzzeji"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="card rounded-card-sm group transition-shadow duration-200 hover:shadow-[4px_4px_0_0_var(--color-ink)] flex items-center gap-4"
-        >
-          <span class="text-2xl" aria-hidden="true">&#9654;</span>
-          <div>
-            <h3
-              class="font-display text-ink text-lg md:text-xl font-extrabold leading-tight"
-            >
-              YouTube
-            </h3>
-            <p class="text-ink-soft text-sm md:text-base">@Guuzzeji</p>
-          </div>
-        </a>
-      </Motion>
-
-      <Motion
-        whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 0.96 }}
-        transition={springTransition}
-        let:motion
-      >
-        <a
-          use:motion
-          href="https://twitter.com/Guuzzeji"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="card rounded-card-sm group transition-shadow duration-200 hover:shadow-[4px_4px_0_0_var(--color-ink)] flex items-center gap-4"
-        >
-          <span class="text-2xl" aria-hidden="true">&#120143;</span>
-          <div>
-            <h3
-              class="font-display text-ink text-lg md:text-xl font-extrabold leading-tight"
-            >
-              Twitter / X
-            </h3>
-            <p class="text-ink-soft text-sm md:text-base">@Guuzzeji</p>
-          </div>
-        </a>
-      </Motion>
-
-      <Motion
-        whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 0.96 }}
-        transition={springTransition}
-        let:motion
-      >
-        <a
-          use:motion
-          href="https://bsky.app/profile/guuzzeji.bsky.social"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="card rounded-card-sm group transition-shadow duration-200 hover:shadow-[4px_4px_0_0_var(--color-ink)] flex items-center gap-4"
-        >
-          <span class="text-2xl" aria-hidden="true">&#9729;</span>
-          <div>
-            <h3
-              class="font-display text-ink text-lg md:text-xl font-extrabold leading-tight"
-            >
-              BlueSky
-            </h3>
-            <p class="text-ink-soft text-sm md:text-base">
-              @guuzzeji.bsky.social
-            </p>
-          </div>
-        </a>
-      </Motion>
+            <div>
+              <h3
+                class="font-display text-ink text-lg md:text-xl font-semibold leading-tight tracking-tight"
+              >
+                {contact.title}
+              </h3>
+              <p class="text-ink-soft text-sm mt-0.5">
+                {contact.subtitle}
+              </p>
+            </div>
+          </a>
+        </Motion>
+      {/each}
     </div>
   </div>
 </section>
