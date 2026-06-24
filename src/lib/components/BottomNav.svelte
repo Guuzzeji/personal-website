@@ -87,7 +87,7 @@
 
 <nav
   class="fixed left-1/2 -translate-x-1/2 z-50 w-screen lg:w-[72vw] px-2"
-  style="bottom: calc(env(safe-area-inset-bottom, 0px) + 3rem)"
+  style="bottom: calc(env(safe-area-inset-bottom, 0px) + 1rem)"
   aria-label="Primary"
 >
   <div
