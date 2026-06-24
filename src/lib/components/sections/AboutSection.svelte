@@ -3,7 +3,7 @@
 </script>
 
 <section id="about" class="section bg-canvas text-ink">
-  <div class="max-w-5xl mx-auto flex flex-col gap-4 md:gap-6">
+  <div class="max-w-5xl mx-auto flex flex-col gap-2 md:gap-0.5">
     <div class="card-accent rounded-card-sm">
       <div class="flex items-center gap-3 md:gap-4 mb-3">
         <img
@@ -11,43 +11,45 @@
           src={WAVE_ICON}
           alt="waving hand"
         />
-        <h2 class="font-display text-ink text-4xl md:text-5xl lg:text-6xl">
+        <h2 class="font-display text-ink text-3xl md:text-5xl lg:text-6xl">
           Hello, I'm Gabe
         </h2>
       </div>
       <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
-        <span class="pill">a.k.a. Guuzzeji Online!</span>
-        <span class="text-ink-soft italic text-lg md:text-xl">
+        <span class="text-sm md:text-base underline"
+          >a.k.a. Guuzzeji Online!</span
+        >
+        <span class="text-ink-soft italic text-sm md:text-xl">
           A full-stack developer and backend developer
         </span>
       </div>
     </div>
 
-    <div class="card rounded-card-sm">
-      <p class="text-ink text-base md:text-lg leading-relaxed">
-        I am a full-stack developer with a strong focus and passion for the
-        backend, specializing in architecting robust and scalable systems. I
-        recently earned a B.S. in Computer Science and a minor in Data Science
-        from Pacific Lutheran University. I thrive on coding, continuous
-        learning, and am constantly seeking out new and complex technical
-        challenges to conquer.
+    <div class="md:pt-10 pt-5">
+      <p class="text-ink text-base md:text-lg leading-relaxed p-3">
+        Hi, my name is Gabriel (or Gabe). I am a Software Engineer at Microsoft
+        with a passion for building robust, scalable technology and solving
+        complex backend problems.
       </p>
-    </div>
 
-    <div class="card rounded-card-sm">
-      <p class="text-ink text-base md:text-lg leading-relaxed">
-        My practical experience includes four internships at Microsoft, where I
-        was a core contributor to Xbox Live Services. In this role, I
-        specialized in building and maintaining the high-performance leaderboard
-        and ranking systems used by thousands of game studios and millions of
-        global players. This intense experience was instrumental in teaching me
-        how to deliver high reliability and performance at a massive, global
-        scale.
+      <p class="text-ink text-base md:text-lg leading-relaxed p-3">
+        My professional background is rooted in core systems. I completed four
+        consecutive internships at Microsoft Xbox, where I built and maintained
+        infrastructure for Xbox Live/PlayFab. More recently, I worked with
+        Moment.dev to engineer a local-first reactive data engine, leveraging
+        Incremental View Maintenance to power a conflict-aware distributed sync
+        and table editing system for collaborative applications.
       </p>
-    </div>
 
-    <div class="card rounded-card-sm">
-      <p class="text-ink text-base md:text-lg leading-relaxed">
+      <p class="text-ink text-base md:text-lg leading-relaxed p-3">
+        Technically, I am highly comfortable with C#, Python, Node.js, and
+        JavaScript, alongside foundational experience in Java, Golang, and
+        C/C++/ASM. Ultimately, I thrive building things, and I am always open to
+        learning a new programming language or framework to push my technical
+        boundaries.
+      </p>
+
+      <p class="text-ink text-base md:text-lg leading-relaxed p-3">
         Outside of coding, I also enjoy playing video games (I need to get off
         of World of Warcraft), watching movies (Scarface!), reading books
         (mostly sci-fi), and editing YouTube videos. I am a big fan of Tyler the
