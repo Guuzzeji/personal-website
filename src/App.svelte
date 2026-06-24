@@ -11,7 +11,7 @@
 <main class="relative">
   <div class="fixed inset-0 -z-10">
     <video autoplay muted loop playsinline class="w-full h-full object-cover">
-      <source src="/background/main.mp4" type="video/mp4" />
+      <source src="/background/v0.mp4" type="video/mp4" />
     </video>
   </div>
   <HeroSection />
