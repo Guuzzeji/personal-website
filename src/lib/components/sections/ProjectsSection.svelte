@@ -9,12 +9,12 @@
 
   const projects: CuratedProject[] = [
     {
-      name: "Personal Website",
+      name: "FreshBatch.tech",
       summary:
-        "The site you\u2019re viewing \u2014 a Svelte-based portfolio with custom components, bento-grid layouts, and hand-tuned design tokens.",
-      url: "https://github.com/Guuzzeji/personal-website",
-      tags: ["Svelte", "TypeScript", "Tailwind"],
-      accent: true,
+        "An automated job-tracking platform and Discord bot designed to help friends seamlessly find and track internships and jobs.",
+      url: "https://freshbatch.tech",
+      tags: ["Next.js", "Python", "Redis"],
+      accent: false,
     },
     {
       name: "Go Minesweeper Multiplayer",
