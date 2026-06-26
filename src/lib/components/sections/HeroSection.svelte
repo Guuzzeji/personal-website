@@ -56,7 +56,7 @@
           <Motion variants={itemVariants} let:motion>
             <p
               use:motion
-              class="font-display text-ink text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight"
+              class="font-display text-ink text-xl sm:text-3xl md:text-4xl font-extrabold leading-tight"
             >
               Software Engineer
               <span class="text-ink/70">&amp; Backend Specialist</span>
@@ -66,7 +66,7 @@
           <Motion variants={itemVariants} let:motion>
             <p
               use:motion
-              class="text-ink-blue text-lg md:text-xl max-w-prose font-medium"
+              class="text-ink-blue text-sm md:text-xl max-w-prose font-medium"
             >
               I build scalable systems and products that feel alive. I believe
               software is the ultimate lever to amplify human potential, and I
@@ -80,7 +80,7 @@
             <a
               use:motion
               href="#projects"
-              class="inline-flex self-start items-center gap-2 bg-ink text-canvas rounded-pill border-3 border-ink font-mono text-sm font-semibold tracking-wide px-6 py-3 transition-all duration-300 hover:bg-[#007AFF] hover:border-[#007AFF] hover:text-white hover:shadow-lg"
+              class="inline-flex self-center sm:self-start items-center gap-2 bg-ink text-canvas rounded-pill border-3 border-ink font-mono text-sm font-semibold tracking-wide px-6 py-2 transition-all duration-300 hover:bg-[#007AFF] hover:border-[#007AFF] hover:text-white hover:shadow-lg"
             >
               View Projects
               <span aria-hidden="true" class="text-base">&rarr;</span>
