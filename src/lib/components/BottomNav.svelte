@@ -223,10 +223,11 @@
       </button>
     {/if}
 
-    <button
+    <a
+      href="https://youtu.be/wm_hfvgakcM?si=EpYXHYGxObKqrGEG"
       class="flex items-center justify-center min-h-11 px-4 rounded-pill bg-white/10 text-ink font-mono text-xs sm:text-sm font-semibold transition-all duration-300 hover:bg-white/20 shadow-sm"
     >
       ✨
-    </button>
+    </a>
   </div>
 </nav>
